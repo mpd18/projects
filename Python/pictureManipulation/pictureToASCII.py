@@ -16,7 +16,7 @@ if(len(sys.argv) > 1):
 	#Read image
 	im = Image.open(sys.argv[1] )
 	#resize image
-	im = im.resize((512,256),Image.ANTIALIAS)
+	im = im.resize((512,255),Image.ANTIALIAS)
 
 	greyscale = [
 				" ",
@@ -42,4 +42,3 @@ if(len(sys.argv) > 1):
 	textFile.close()
 else:
 	print("no picture to convert")
-	
