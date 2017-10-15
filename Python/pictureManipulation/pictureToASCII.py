@@ -15,9 +15,8 @@ if(len(sys.argv) > 1):
 	
 	#Read image
 	im = Image.open(sys.argv[1] )
-	#Display image
-	im = im.resize((512,256),Image.BILINEAR)
-	#im = im.convert("L")
+	#resize image
+	im = im.resize((512,256),Image.ANTIALIAS)
 
 	greyscale = [
 				" ",
@@ -25,7 +24,7 @@ if(len(sys.argv) > 1):
 				".,-",
 				"_ivc=!/|\\~",
 				"gjez2]/(YL)t[+T7Vf",
-				"mdK4ZGbNDXY5P*Q",
+				"mdK4ZGbNDXY5PQ",
 				"W8KMA",
 				"#%$"
 				]
@@ -33,6 +32,7 @@ if(len(sys.argv) > 1):
 
 	for y in range (0,im.size[1]):
 		for x in range (0,im.size[0]):
+			# subtract from 255 otherwise colors are inverted
 			pixel = 255 - convertToGrey(im.getpixel((x,y)))
 			row = getRow(pixel,greyscale)
 			string += greyscale[row][random.randint(0,len(greyscale[row]) -1)]
